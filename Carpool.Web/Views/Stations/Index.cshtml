@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Carpool.Web.GeneratedModels.Station>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StationTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationPassenger)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StationTravel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationPassenger.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StationTravel.TravelId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StationId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StationId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StationId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
